@@ -1,9 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import FeaturedComponent from '@/components/FeaturedComponent.vue';
-import HeroBanner from '@/components/HeroBanner.vue';
-import CartComponent from '@/components/CartComponent.vue';
-import BooksListing from '@/components/BooksListing.vue';
+
+import CartComponent from '../components/CartComponent.vue';
+import HeroBanner from '../components/HeroBanner.vue';
+import FeatureComponent from '../components/FeatureComponent.vue';
+import BookListing from '../components/BookListing.vue';
 
 const showCart = ref(false);
 const cart = ref({
@@ -107,7 +108,7 @@ function addToCart(book) {
   <template v-else>
     <button @click="showCart = true">Ir para carrinho</button>>
     <HeroBanner />
-    <FeaturedComponent />
-    <BooksListing :books="books" @add-to-cart="addToCart" />
+    <FeatureComponent />
+    <BookListing :books="books" @add-to-cart="addToCart" />
   </template>
 </template>
