@@ -79,7 +79,6 @@ function decrementBookToCart(book) {
   }
   cart.value.total -= book.price;
 }
-
 function incrementBookToCart(book) {
   const existingBook = cart.value.items.find((item) => item.id === book.id);
   existingBook.quantity++;
@@ -101,9 +100,9 @@ function addToCart(book) {
   <CartComponent
     v-if="showCart"
     :cart="cart"
-    @hide-cart="showCart = false"
-    @increment-book="incrementBookToCart"
-    @decrement-book="decrementBookToCart"
+    @click-back-home="showCart = false"
+    @click-add="incrementBookToCart"
+    @click-minus="decrementBookToCart"
   />
   <template v-else>
     <button @click="showCart = true">Ir para carrinho</button>>
