@@ -18,7 +18,6 @@ const bookStore = useBookStore();
     @click-minus="cartStore.decrementBookToCart"
   />
   <template v-else>
-    <button @click="showCart = true">Ir para carrinho</button>>
     <HeroBanner />
     <FeatureComponent />
     <BookListing :books="bookStore.books" @add-to-cart="cartStore.addToCart" />
