@@ -1,8 +1,11 @@
 <script setup>
 defineEmits(['click-cart'])
+
+import { useCartStore } from '../stores/cart'
+const cartStore = useCartStore()
 </script>
 <template>
-    <header>
+  <header>
     <nav>
       <h1>
         <RouterLink to="/">
@@ -20,7 +23,9 @@ defineEmits(['click-cart'])
         <li>Devoluções</li>
       </ul>
       <ul class="icons">
-        <li @click="$emit('click-cart')"><span class="mdi mdi-cart"></span></li>
+        <li @click="cartStore.showCart = !cartStore.showCart">
+          <span class="mdi mdi-cart"></span>
+        </li>
         <li><span class="mdi mdi-heart"></span></li>
         <li><span class="mdi mdi-account"></span></li>
       </ul>
@@ -28,7 +33,7 @@ defineEmits(['click-cart'])
   </header>
 </template>
 <style scoped>
-    header nav {
+header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -101,5 +106,4 @@ defineEmits(['click-cart'])
     padding-right: 2rem;
   }
 }
-
 </style>
