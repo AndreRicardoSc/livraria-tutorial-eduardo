@@ -1,5 +1,4 @@
 <script setup>
-import CartComponent from '../components/CartComponent.vue';
 import HeroBanner from '../components/HeroBanner.vue';
 import FeatureComponent from '../components/FeatureComponent.vue';
 import BookListing from '../components/BookListing.vue';
@@ -10,16 +9,7 @@ const cartStore = useCartStore();
 const bookStore = useBookStore();
 </script>
 <template>
-  <CartComponent 
-    v-if="cartStore.showCart"
-    :cart="cartStore.cart"
-    @click-back-home="cartStore.showCart = false"
-    @click-add="cartStore.incrementBookToCart"
-    @click-minus="cartStore.decrementBookToCart"
-  />
-  <template v-else>
     <HeroBanner />
     <FeatureComponent />
     <BookListing :books="bookStore.books" @add-to-cart="cartStore.addToCart" />
-  </template>
 </template>

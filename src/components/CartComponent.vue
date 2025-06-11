@@ -1,6 +1,6 @@
 <script setup>
 defineProps(['cart'])
-defineEmits(['click-minus', 'click-add', 'click-back-home'])
+defineEmits(['click-minus', 'click-add'])
 </script>
 <template>
     <section class="cart">
@@ -38,7 +38,9 @@ defineEmits(['click-minus', 'click-add', 'click-back-home'])
           </tr>
         </tbody>
       </table>
-      <button @click="$emit('click-back-home')" class="outlined">Voltar para loja</button>
+      <RouterLink to="/">
+        <button class="outlined">Voltar para loja</button>
+      </RouterLink>
       <div class="cart-summary">
         <div class="cupom">
           <input type="text" placeholder="Código do cupom" />

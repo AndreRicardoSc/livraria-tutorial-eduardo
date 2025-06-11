@@ -36,6 +36,13 @@
     width: calc(100% / 4 - 42px);
     margin: 20px;
 
+    & img{
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+    & img:hover{
+      opacity: 0.5;
+    }
     & h2 {
       font-size: 1.5rem;
       font-weight: 700;

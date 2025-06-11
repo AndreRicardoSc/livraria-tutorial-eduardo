@@ -1,8 +1,5 @@
 <script setup>
 defineEmits(['click-cart'])
-
-import { useCartStore } from '../stores/cart'
-const cartStore = useCartStore()
 </script>
 <template>
   <header>
@@ -16,15 +13,17 @@ const cartStore = useCartStore()
       <div class="search-wrapper">
         <input type="text" class="search" placeholder="Buscar..." />
       </div>
-      <ul>
+      <ul class="strings">
         <li>Termos</li>
         <li><RouterLink to="/equipe">Equipe</RouterLink></li>
         <li>Envio</li>
         <li>Devoluções</li>
       </ul>
       <ul class="icons">
-        <li @click="cartStore.showCart = !cartStore.showCart">
-          <span class="mdi mdi-cart"></span>
+        <li>
+          <RouterLink to="/carrinho">
+            <span class="mdi mdi-cart"></span>
+          </RouterLink>
         </li>
         <li><span class="mdi mdi-heart"></span></li>
         <li><span class="mdi mdi-account"></span></li>
@@ -81,7 +80,9 @@ header nav {
     margin: 0 10px;
     font-size: 1rem;
   }
-
+  & .strings li a{
+    color: #000;
+  }
   & .icons li {
     color: #27ae60;
     font-size: 1.3rem;
