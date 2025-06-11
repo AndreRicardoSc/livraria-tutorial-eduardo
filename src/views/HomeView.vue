@@ -13,3 +13,8 @@ const bookStore = useBookStore();
     <FeatureComponent />
     <BookListing :books="bookStore.books" @add-to-cart="cartStore.addToCart" />
 </template>
+<style scoped>
+    *{
+        animation: enter-animation ease-in 750ms;
+    }
+</style>

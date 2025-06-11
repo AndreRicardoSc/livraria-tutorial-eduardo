@@ -10,3 +10,8 @@
         @click-minus="cartStore.decrementBookToCart"
     />
 </template> 
+<style scoped>
+    *{
+        animation: enter-animation ease-in 750ms;
+    }
+</style>

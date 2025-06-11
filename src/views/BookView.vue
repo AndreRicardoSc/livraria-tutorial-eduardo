@@ -17,6 +17,9 @@
   </div>
 </template>
 <style scoped>
+  *{
+    animation: enter-animation ease-in 750ms;
+  }
   .detail{
     text-align: center;
     margin: 10% 20%;
