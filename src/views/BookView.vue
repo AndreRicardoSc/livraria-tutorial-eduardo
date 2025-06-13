@@ -1,8 +1,14 @@
 <script setup>
-  const props = defineProps(['id']);
+  import { onMounted, ref } from 'vue';
   import { useBookStore } from '../stores/books';
   const bookStore = useBookStore();
-  const book = bookStore.books[props.id - 1];
+
+  const props = defineProps(['id']);
+  
+  const book = ref({});
+  onMounted(() => {
+    book.value =  bookStore.getBookById(props.id);
+  })
 </script>
 <template>
   <div class="detail">

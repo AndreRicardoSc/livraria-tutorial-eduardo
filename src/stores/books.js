@@ -68,6 +68,8 @@ export const useBookStore = defineStore('books', () => {
       sinopse: '"Flor de Poemas" é uma antologia que reúne o melhor da poesia de Cecília Meireles, selecionada por Paulo Mendes Campos. A obra apresenta a diversidade da poesia de Cecília, desde os versos mais introspectivos até os de natureza mais universal, abordando temas como amor, efemeridade e saudade. ',
     },
   ]);
-
-  return { books }; 
+  function getBookById(id){
+    return books.value.find(book => book.id == id)
+  }
+  return { books, getBookById }; 
 });
