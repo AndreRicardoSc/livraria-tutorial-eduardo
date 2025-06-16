@@ -1,6 +1,6 @@
 <script setup>
-    defineProps(['books'])
-    defineEmits(['add-to-cart'])
+    const props = defineProps(['books'])
+    defineEmits(['add-to-cart', 'add-to-favorite', 'remove-to-favorite'])
 
     import { useRouter } from 'vue-router';
     const router = useRouter();
@@ -11,13 +11,18 @@
 </script>
 <template>
     <section class="books">
-      <article class="book" v-for="book in books" :key="book.id">
+      <article class="book" v-for="book in props.books" :key="book.id">
         <img :src="book.cover" :alt="book.title" @click="openBook(book.id)"/>
         <h2>{{ book.title }}</h2>
         <p class="book-author">{{ book.author }}</p>
         <span class="price-and-like">
           <p class="book-price">R$ {{ book.price.toFixed(2) }}</p>
-          <span class="mdi mdi-heart-outline"></span>
+          <span
+            class="mdi mdi-heart-outline" 
+            @click="
+              $emit('add-to-favorite', book.id );
+            "
+          />
         </span>
         <button @click="$emit('add-to-cart', book)"><span class="mdi mdi-cart"></span>Comprar</button>
       </article>

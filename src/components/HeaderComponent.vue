@@ -25,7 +25,11 @@ defineEmits(['click-cart'])
             <span class="mdi mdi-cart"></span>
           </RouterLink>
         </li>
-        <li><span class="mdi mdi-heart"></span></li>
+        <li>
+          <RouterLink to="/favoritos">
+            <span class="mdi mdi-heart"></span>
+          </RouterLink>
+        </li>
         <li><span class="mdi mdi-account"></span></li>
       </ul>
     </nav>
@@ -80,7 +84,7 @@ header nav {
     margin: 0 10px;
     font-size: 1rem;
   }
-  & .strings li a{
+  & .strings li a {
     color: #000;
   }
   & .icons li {

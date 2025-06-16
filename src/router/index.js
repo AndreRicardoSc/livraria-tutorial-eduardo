@@ -1,32 +1,31 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-//imports dos views
-import HomeView from "../views/HomeView.vue";
-import TeamView from "../views/TeamView.vue";
-import BookView from "../views/BookView.vue";
-import CartView from "../views/CartView.vue";
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: HomeView,
+    component: import ('@/views/HomeView.vue'),
   },
   {
     path: '/carrinho',
     name: 'Cart',
-    component: CartView,
-    props: true
+    component: import ('@/views/CartView.vue'),
   },
   {
     path: '/equipe',
     name: 'Team',
-    component: TeamView
+    component: import ('@/views/TeamView.vue'),
   },
   {
     path: '/livro/:id',
     name: 'Book',
-    component: BookView,
+    component: import ('@/views/BookView.vue'),
     props: true,
+  },
+  {
+    path: '/favoritos',
+    name: 'Favorite',
+    component: () => import ('@/views/FavoriteView.vue'),
   },
 ];
 

@@ -34,7 +34,7 @@ defineEmits(['click-minus', 'click-add'])
                 </button>
               </div>
             </td>
-            <td class="cart-item-subtotal">R$ {{ book.price * book.quantity }}</td>
+            <td class="cart-item-subtotal">R$ {{ (book.price * book.quantity).toFixed(2) }}</td>
           </tr>
         </tbody>
       </table>
